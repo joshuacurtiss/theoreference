@@ -1,0 +1,14 @@
+{
+  "name": "theoreference",
+  "version": "0.1.0",
+  "description": "Library for working with theocratic publication references.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/joshuacurtiss/theoreference.git"
+  },
+  "author": "Josh Curtiss <josh@curtiss.me>",
+  "license": "ISC",
+  "devDependencies": {
+    "chai": "^3.5.0"
+  }
+}
