@@ -37,6 +37,32 @@ Other:
   - Subheading 1..99
   - Summary 1..9
 
+### Stop Phrases for Paragraphs
+
+Some items have a/b/c/d parts that we want to follow to the end. Also, they
+may have a scripture or other item after them. So we look for these phrases in
+the following chapter to know we should stop.
+
+Types that this approach applies to:
+  - P 1..99
+  - Box P 1..99[a..d]
+  - Box 1..9
+  - Box 1..9 P 1..99[a..d]
+  - Presentation 1..9
+  
+Stopper Expressions:
+  - Q 
+  - P (#+1)
+  - Presentation Intro
+  - Build Your Own
+  - Subheading
+  - Box
+  - Art
+  - Review
+
+  Other range considerations:
+  - `Art 1` will just find all `Art 1*` chapters.
+
 
 ## Watchtower (w) 
 
@@ -85,8 +111,6 @@ Each meeting part:
 
 Other:
   - Title Page
-  - Build Your Own
   - Presentations
   - Presentation Intro 1..9
   - Presentation 1..9[a..d]
-  - TREASURES
