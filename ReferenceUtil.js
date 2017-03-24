@@ -1,5 +1,6 @@
-let Publication=require("./Publication");
-let Reference=require("./Reference");
+const Publication=require("./Publication");
+const Reference=require("./Reference");
+const REGEX=require("./RegEx");
 
 class ReferenceUtil {
 
@@ -33,17 +34,17 @@ class ReferenceUtil {
     getReferenceRegEx() {
         var pubsrearray=[];
         for( var p of ReferenceUtil.PUBLICATIONS ) pubsrearray.push(p.regex.source);
-        var source=ReferenceUtil.REFERENCE_REGEX.source
+        var source=REGEX.REFERENCE_REGEX.source
                 .replace("\\w+",pubsrearray.join("|"))
-                .replace(/CUESWITHNUMBERS/g,ReferenceUtil.CUESWITHNUMBERS_REGEX.source)
-                .replace(/CUENUMBER/g,ReferenceUtil.CUENUMBER_REGEX.source);
-        return RegExp(source,ReferenceUtil.REFERENCE_REGEX.flags);
+                .replace(/CUESWITHNUMBERS/g,REGEX.CUESWITHNUMBERS_REGEX.source)
+                .replace(/CUENUMBER/g,REGEX.CUENUMBER_REGEX.source);
+        return RegExp(source,REGEX.REFERENCE_REGEX.flags);
     }
     getChapterCueRegEx() {
-        var source=ReferenceUtil.CHAPTERCUE_REGEX.source
-                .replace(/CUESWITHNUMBERS/g,ReferenceUtil.CUESWITHNUMBERS_REGEX.source)
-                .replace(/CUENUMBER/g,ReferenceUtil.CUENUMBER_REGEX.source);
-        return RegExp(source,ReferenceUtil.CHAPTERCUE_REGEX.flags);
+        var source=REGEX.CHAPTERCUE_REGEX.source
+                .replace(/CUESWITHNUMBERS/g,REGEX.CUESWITHNUMBERS_REGEX.source)
+                .replace(/CUENUMBER/g,REGEX.CUENUMBER_REGEX.source);
+        return RegExp(source,REGEX.CHAPTERCUE_REGEX.flags);
     }
 
     /*
@@ -60,21 +61,12 @@ class ReferenceUtil {
 
 }
 
-// TODO: Add CUEMISC regex to this regex.
-ReferenceUtil.REFERENCE_REGEX = /\b(\w+)((?:\s*(?:\d+)\s*[:\.]{0,1}\s*(?:(?:CUESWITHNUMBERS\s*CUENUMBER|\d+)(?:\s*[\-,]\s*(?:CUESWITHNUMBERS\s*CUENUMBER|\d+))*)*;*)*)\b/gi
-ReferenceUtil.CHAPTERCUE_REGEX = /(\d+)\s*[:\.]{0,1}\s*((?:CUESWITHNUMBERS\s*CUENUMBER|\d+)(?:\s*[\-,]\s*(?:CUESWITHNUMBERS\s*CUENUMBER|\d+))*)*/gi;
-ReferenceUtil.CUESWITHNUMBERS_REGEX = /(?:art|art caption|box|p|q|r|review|presentation|presentation intro|article|service meeting|subheading|verse|summary)/i
-ReferenceUtil.CUENUMBER_REGEX = /(?:\d{1,2}[a-f]{0,1}){0,1}/i
-ReferenceUtil.CUESMISC_REGEX = /(start|title|introduction|chorus|publication title|title page|article questions|opening questions)/i
-
-// TODO: How to handle yearbook, watchtower, watchtower simplified, okm, mwb? 
+// TODO: How to handle yearbook, watchtower, watchtower simplified, okm, mwb? Maybe add a year option to Publication class.
 ReferenceUtil.PUBLICATIONS = [
-    /*
-    new Publication( "ba", "A Book for All People", /XXXX/i ), 
-    new Publication( "be", "Benefit From Theocratic Ministry School Education", /XXXX/i ),
-    new Publication( "bh", "What Does the Bible Really Teach?", /XXXX/i ), 
-    */
-    new Publication( "bhs", "What Can the Bible Teach Us?", /(?:bhs|bible teach|what can the bible teach us)\??/i ), 
+    new Publication( "ba", "A Book for All People", /(?:ba|book for all people|book for all)/i ), 
+    new Publication( "be", "Benefit From Theocratic Ministry School Education", /(?:be|benefit from theocratic ministry school education|ministry school|benefit)/i ),
+    new Publication( "bh", "What Does the Bible Really Teach?", /(?:bh|what does the bible really teach|bible teach)\??/i ), 
+    new Publication( "bhs", "What Can the Bible Teach Us?", /(?:bhs|what can the bible teach us|teach us)\??/i ), 
     /*
     new Publication( "bm", "The Bible—What Is Its Message?", /XXXX/i ), 
     new Publication( "bp", "The Government That Will Bring Paradise", /XXXX/i ), 
@@ -95,9 +87,9 @@ ReferenceUtil.PUBLICATIONS = [
     new Publication( "gu", "The Guidance of God—Our Way to Paradise", /XXXX/i ), 
     new Publication( "hb", "How Can Blood Save Your Life?", /XXXX/i ), 
     */
-    new Publication( "hf", "Your Family Can Be Happy", /(?:hf|happy family|your family can be happy)/i ), 
-    new Publication( "hl", "How Can You Have a Happy Life?", /(?:hl|happy life|how can you have a happy life)\??/i ), 
-    new Publication( "ia", "Imitate Their Faith", /(?:ia|imitate|imitate their faith)/i ), 
+    new Publication( "hf", "Your Family Can Be Happy", /(?:hf|your family can be happy|happy family)/i ), 
+    new Publication( "hl", "How Can You Have a Happy Life?", /(?:hl|how can you have a happy life|happy life)\??/i ), 
+    new Publication( "ia", "Imitate Their Faith", /(?:ia|imitate their faith|imitate)/i ), 
     /*
     new Publication( "ie", "What Happens to Us When We Die?", /XXXX/i ), 
     new Publication( "ip-1", "Isaiah's Prophecy—Light for All Mankind I", /XXXX/i ), 
@@ -107,7 +99,7 @@ ReferenceUtil.PUBLICATIONS = [
     new Publication( "jd", "Live With Jehovah's Day in Mind", /XXXX/i ), 
     new Publication( "je", "Jehovah's Witnesses—Unitedly Doing God's Will Worldwide", /XXXX/i ), 
     */
-    new Publication( "jl", "Who Are Doing Jehovah's Will Today?", /(?:jl|jehovah's will|who are doing jehovah's will)/i ), 
+    new Publication( "jl", "Who Are Doing Jehovah's Will Today?", /(?:jl|who are doing jehovah's will|jehovah's will)/i ), 
     /*
     new Publication( "jr", "God's Word for Us Through Jeremiah", /XXXX/i ), 
     new Publication( "jt", "Jehovah's Witnesses—Who Are They? What Do They Believe?", /XXXX/i ), 
@@ -156,7 +148,7 @@ ReferenceUtil.PUBLICATIONS = [
     new Publication( "yp1", "Questions Young People Ask—Answers That Work, Volume 1", /XXXX/i ), 
     new Publication( "yp2", "Questions Young People Ask—Answers That Work, Volume 2", /XXXX/i ), 
     */
-    new Publication( "ypq", "Answers to 10 Questions Young People Ask", /(?:ypq|answers|answers to 10 questions|answers to 10 questions young people ask)/i )
+    new Publication( "ypq", "Answers to 10 Questions Young People Ask", /(?:ypq|answers|answers to 10 questions young people ask|answers to 10 questions)/i )
 ];
 
 module.exports=ReferenceUtil;
