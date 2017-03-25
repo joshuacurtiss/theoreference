@@ -134,6 +134,10 @@ ReferenceUtil.PUBLICATIONS = [
     new Publication( "sg", "Theocratic Ministry School Guidebook", /XXXX/i ), 
     new Publication( "sh", "Mankind's Search for God", /XXXX/i ), 
     new Publication( "si", "All Scripture Is Inspired of God and Beneficial", /XXXX/i ), 
+    */
+    new Publication( "sn", "Sing to Jehovah", /(?:sn|sing to jehovah|sing|songs|song)/i ),
+    new Publication( "snnw", "Sing to Jehovah-New Songs", /(?:snnw|sing to jehovah\-new songs|sing new|new songs|new song)/i ),
+    /*
     new Publication( "sp", "Spirits of the Dead—Can They Help You or Harm You? Do They Really Exist?", /XXXX/i ), 
     new Publication( "ti", "Should You Believe in the Trinity?", /XXXX/i ), 
     new Publication( "tp", "True Peace and Security—How Can You Find It?", /XXXX/i ), 
