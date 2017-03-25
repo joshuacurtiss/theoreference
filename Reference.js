@@ -37,14 +37,14 @@ class Reference {
         // Can receive an array of strings for cue names. But it also will receive an array of cues as the
         // webvtt library would return, where each array item is an object and the name is in a "content" property. 
         var sanitizedCues=[];
-        if( Array.isArray(cues) ) {
+        if( Array.isArray(cues) && cues.length ) {
             for( var c of cues ) {
                 if( typeof c=="object" && c.hasOwnProperty("content") ) sanitizedCues.push(c.content);
                 else if( typeof c=="string" ) sanitizedCues.push(c);
             }
         }
         this._cues=sanitizedCues;
-        this.pars=this.pars; // Trigger a reparsing now that we have the cues.
+        if(sanitizedCues.length) this.pars=this.pars; // Trigger a reparsing now that we have the cues.
     }
     sanitizeChapter(txt) {
         return txt.replace(/^(?:ch|chapter)?\s*(\d+)$/i,"$1");
@@ -97,7 +97,8 @@ class Reference {
         return (this.cues.length>0);
     }
     isAllPars() {
-        return (this.pars.length==0);
+        return  (this.hasCues()==false && this.pars.length==0) ||
+                (this.hasCues() && this.pars.length==this.cues.length);
     }
     toString() {
         return `${this.publication.symbol} ${this.chapter}${this.isAllPars()?"":":"}${this.parsToString()}`;
