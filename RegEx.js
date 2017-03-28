@@ -5,5 +5,6 @@ module.exports={
     CHAPTERCUE_REGEX: /(?:ch|chapter)?\s*(\d+)\s*[:\.]?\s*((?:CUESWITHNUMBERS\s*CUENUMBER?|\d+)(?:\s*[\-,]\s*(?:CUESWITHNUMBERS\s*CUENUMBER?|\d+))*)*/gi,
     CUESWITHNUMBERS_REGEX: /(?:art caption|presentation intro|article|service meeting|subheading|verse|summary|art|box|par|question|review|presentation|p|q|r)/i,
     CUENUMBER_REGEX: /(?:\d{1,2}[a-f]?)/i,
+    PARBOUNDARY_REGEX: /^(subheading|box|art|par|review|p|q|r)\s/i,
     CUESMISC_REGEX: /(start|title|introduction|chorus|publication title|title page|article questions|opening questions)/i
 };

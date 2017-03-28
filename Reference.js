@@ -2,10 +2,10 @@ const REGEX=require("./RegEx");
 
 class Reference {
     constructor(publication,chapter,pars) {
+        this.availableCues=[];
         this.publication=publication;
         this.chapter=chapter;
         this.pars=pars;
-        this.cues=[];
         return this;
     }
     get publication() {return this._publication}
@@ -19,21 +19,17 @@ class Reference {
         else if( pars && typeof pars=="number" ) this._pars.push(pars);
         else if( pars && typeof pars=="string" ) {
             for( var p of pars.split(",") ) {
-                p=p.trim();
-                // TODO: Handle hyphen for ranges, if has cues. 
-                if( p.split("-").length==2 ) {
-                    var start=this.sanitizePar(p.split("-")[0]);
-                    var end=this.sanitizePar(p.split("-")[1]);
-                    p=start+"-"+end;
-                    this._pars.push(p);
-                } else {
-                    this._pars.push(this.sanitizePar(p));
-                }
+                var sanitized=[];
+                p.trim().split("-").splice(0,2).forEach(thisp=>sanitized.push(this.sanitizePar(thisp)));
+                this._pars.push(sanitized.join("-"));
             }
         }
+        this.cues=this.createCuesFromPars(this._pars)
     }
     get cues() {return this._cues}
-    set cues(cues) {
+    set cues(cues) {this._cues=cues}
+    get availableCues() {return this._availableCues}
+    set availableCues(cues) {
         // Can receive an array of strings for cue names. But it also will receive an array of cues as the
         // webvtt library would return, where each array item is an object and the name is in a "content" property. 
         var sanitizedCues=[];
@@ -43,8 +39,48 @@ class Reference {
                 else if( typeof c=="string" ) sanitizedCues.push(c);
             }
         }
-        this._cues=sanitizedCues;
+        this._availableCues=sanitizedCues;
         if(sanitizedCues.length) this.pars=this.pars; // Trigger a reparsing now that we have the cues.
+    }
+    createCuesFromPars(pars) {
+        var cues=[];
+        // Only work if you have the list of available cues.
+        if( this.hasAvailableCues() ) {
+            // Loop thru all pars
+            for( var par of pars ) {
+                // Get start/end values, if range. If not range, they'll be identical.
+                var split=par.split("-");
+                var start=split[0].trim();
+                var end=split[split.length-1].trim();
+                // Add the "P" for numeric values (but include "14a" type values)
+                if( REGEX.CUENUMBER_REGEX.test(start) ) start="P "+start;
+                if( REGEX.CUENUMBER_REGEX.test(end) ) end="P "+end;
+                // Find matches in the available cues
+                var startRE=new RegExp("^"+start+"[a-f]?$","i");
+                var endRE=new RegExp("^"+end+"[a-f]?$","i");
+                var startI=this.availableCues.findIndex((item,index)=>{
+                    if(startRE.test(item)) return index;
+                });
+                // For ending, grab the last matching item. So make array of matches and grab last item.
+                var endArray=this.availableCues.filter((item,index)=>{
+                    if(endRE.test(item)) return index;
+                });
+                var endI=this.availableCues.indexOf(endArray[endArray.length-1]);
+                // Now check if any other materials after the par should be included, like scriptures, etc.
+                var index=endI;
+                while( index>=0 ) {
+                    if( index+1<this.availableCues.length && !REGEX.PARBOUNDARY_REGEX.test(this.availableCues[index+1])) endI=++index;
+                    else index=-1;
+                }
+                // Push out the range of matching cues
+                for( var i=startI ; i<=endI ; i++ ) cues.push(this.availableCues[i]);
+            }
+            // If pars was empty, that means we want everything. Just copy from available cues.
+            if( pars.length==0 ) {
+                this.availableCues.forEach(item=>cues.push(item));
+            }
+        }
+        return cues;
     }
     sanitizeChapter(txt) {
         return txt.replace(/^(?:ch|chapter)?\s*(\d+)$/i,"$1");
@@ -93,12 +129,12 @@ class Reference {
     valid() {
         return this.publication && this.chapter;
     }
-    hasCues() {
-        return (this.cues.length>0);
+    hasAvailableCues() {
+        return (this.availableCues.length>0);
     }
     isAllPars() {
-        return  (this.hasCues()==false && this.pars.length==0) ||
-                (this.hasCues() && this.pars.length==this.cues.length);
+        return  (this.hasAvailableCues()==false && this.pars.length==0) ||
+                (this.hasAvailableCues() && this.cues.length==this.availableCues.length);
     }
     toString() {
         return `${this.publication.symbol} ${this.chapter}${this.isAllPars()?"":":"}${this.parsToString()}`;
