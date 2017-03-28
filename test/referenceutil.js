@@ -31,7 +31,8 @@ describe("ReferenceUtil", function() {
             {text:"Try ia 14 art 1-p 3, p 8 please and thank you.", finds:"ia 14:Art 1-3, 8"},
             {text:"Try ia 15:22; 16:10", finds:"ia 15:22; ia 16:10"},
             {text:"Try ia 15:22; 16:10; bhs 2:12", finds:"ia 15:22; ia 16:10; bhs 2:12"},
-            {text:"Check out ia 16 box 1 p 2", finds:"ia 16:Box 1 P 2"}
+            {text:"Check out ia 16 box 1 p 2", finds:"ia 16:Box 1 P 2"},
+            {text:"ia 15:22-24-26", finds:"ia 15:22-24"}
         ];
         tests.forEach(function(test) {
             it(`"${test.text}" should find "${test.finds}"`, function() {
@@ -46,18 +47,20 @@ describe("ReferenceUtil", function() {
 
     describe("Cues", function() {
         var tests=[
-            {text:"sn 1", pars:CUES.sn["1"]},
-            {text:"ia 15:22", pars:["22"]},
-            {text:"ia 14:14", pars:["14a","Jonah 4:2","Jonah 4:3","14b"]},
-            {text:"ia 16:1-3", pars:["1","2","3a","Esther 5:3","3b"]}
+            {text:"sn 1", cues:CUES.sn["1"]},
+            {text:"ia 15:22", cues:["P 22"]},
+            {text:"ia 14:14", cues:["P 14a","Jonah 4:2","Jonah 4:3","P 14b"]},
+            {text:"ia 16:1-3", cues:["P 1","P 2","P 3a","Esther 5:3","P 3b"]},
+            {text:"ia 16:6", cues:["P 6","Prov. 10:19"]},
+            {text:"ia 16:5-6", cues:["P 5a","Eccl. 3:1","Eccl. 3:7","P 5b","P 6","Prov. 10:19"]}
         ];
         tests.forEach(function(test) {
-            it(`"${test.text}" should have pars: ${test.pars.join(', ')}`, function() {
+            it(`"${test.text}" should have cues: ${test.cues.join(', ')}`, function() {
                 var util=new ReferenceUtil();
                 var result=util.parseReferences(test.text);
                 if(result.length) result=result[0];
-                result.cues=CUES[result.publication.symbol][result.chapter];
-                expect(result.pars.join(", ")).to.equal(test.pars.join(", "));
+                result.availableCues=CUES[result.publication.symbol][result.chapter];
+                expect(result.cues.join(", ")).to.equal(test.cues.join(", "));
             });
         });
     })
