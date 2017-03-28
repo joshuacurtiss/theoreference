@@ -52,14 +52,16 @@ describe("ReferenceUtil", function() {
             {text:"ia 14:14", cues:["P 14a","Jonah 4:2","Jonah 4:3","P 14b"]},
             {text:"ia 16:1-3", cues:["P 1","P 2","P 3a","Esther 5:3","P 3b"]},
             {text:"ia 16:6", cues:["P 6","Prov. 10:19"]},
-            {text:"ia 16:5-6", cues:["P 5a","Eccl. 3:1","Eccl. 3:7","P 5b","P 6","Prov. 10:19"]}
+            {text:"ia 16:5-6", cues:["P 5a","Eccl. 3:1","Eccl. 3:7","P 5b","P 6","Prov. 10:19"]},
+            {text:"ia 14:99", cues:[]}
         ];
         tests.forEach(function(test) {
-            it(`"${test.text}" should have cues: ${test.cues.join(', ')}`, function() {
+            it(`"${test.text}" should have cues: "${test.cues.join(', ')}"`, function() {
                 var util=new ReferenceUtil();
                 var result=util.parseReferences(test.text);
                 if(result.length) result=result[0];
                 result.availableCues=CUES[result.publication.symbol][result.chapter];
+                expect(result.cues.length).to.equal(test.cues.length);
                 expect(result.cues.join(", ")).to.equal(test.cues.join(", "));
             });
         });
