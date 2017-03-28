@@ -72,8 +72,10 @@ class Reference {
                     if( index+1<this.availableCues.length && !REGEX.PARBOUNDARY_REGEX.test(this.availableCues[index+1])) endI=++index;
                     else index=-1;
                 }
-                // Push out the range of matching cues
-                for( var i=startI ; i<=endI ; i++ ) cues.push(this.availableCues[i]);
+                // Push out the range of matching cues, given that they were found
+                if( startI>=0 && endI>=0 ) {
+                    for( var i=startI ; i<=endI ; i++ ) cues.push(this.availableCues[i]);
+                }
             }
             // If pars was empty, that means we want everything. Just copy from available cues.
             if( pars.length==0 ) {
