@@ -34,7 +34,8 @@ describe("ReferenceUtil", function() {
             {text:"Try ia 15:22; 16:10; bhs 2:12", finds:"ia 15:22; ia 16:10; bhs 2:12"},
             {text:"Check out ia 16 box 1 p 2", finds:"ia 16:Box 1 p 2"},
             {text:"bearing thorough witness about gods kingdom ch1 par 2", finds:"bt 1:2"},
-            {text:"ia 15:22-24-26", finds:"ia 15:22-24"}
+            {text:"ia 15:22-24-26", finds:"ia 15:22-24"},
+            {text:"ia 16 title", finds:"ia 16:Title"}
         ];
         tests.forEach(function(test) {
             it(`"${test.text}" should find "${test.finds}"`, function() {
@@ -58,6 +59,7 @@ describe("ReferenceUtil", function() {
             {text:"ia 16 box 2 p 1", cues:["Box 2 P 1a","Gen. 49:27","Box 2 P 1b"]},
             {text:"ia 16 art 2", cues:["Art 2"]},
             {text:"ia 16 art 2 caption, art 2", cues:["Art 2 Caption","Art 2"]},
+            {text:"ia 16 title", cues:["Title"]},
             {text:"ia 14:99", cues:[]}
         ];
         tests.forEach(function(test) {

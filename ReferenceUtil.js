@@ -43,13 +43,15 @@ class ReferenceUtil {
         var source=REGEX.REFERENCE_REGEX.source
                 .replace("\\w+",pubsrearray.join("|"))
                 .replace(/CUESWITHNUMBERS/g,REGEX.CUESWITHNUMBERS_REGEX.source)
-                .replace(/CUENUMBER/g,REGEX.CUENUMBER_REGEX.source);
+                .replace(/CUENUMBER/g,REGEX.CUENUMBER_REGEX.source)
+                .replace(/CUESMISC/g,REGEX.CUESMISC_REGEX.source);
         return RegExp(source,REGEX.REFERENCE_REGEX.flags);
     }
     getChapterCueRegEx() {
         var source=REGEX.CHAPTERCUE_REGEX.source
                 .replace(/CUESWITHNUMBERS/g,REGEX.CUESWITHNUMBERS_REGEX.source)
-                .replace(/CUENUMBER/g,REGEX.CUENUMBER_REGEX.source);
+                .replace(/CUENUMBER/g,REGEX.CUENUMBER_REGEX.source)
+                .replace(/CUESMISC/g,REGEX.CUESMISC_REGEX.source);
         return RegExp(source,REGEX.CHAPTERCUE_REGEX.flags);
     }
 
