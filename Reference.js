@@ -54,8 +54,9 @@ class Reference {
                 var start=split[0].trim();
                 var end=split[split.length-1].trim();
                 // Add the "P" for numeric values (but include "14a" type values)
-                if( REGEX.CUENUMBER_REGEX.test(start) ) start="P "+start;
-                if( REGEX.CUENUMBER_REGEX.test(end) ) end="P "+end;
+                var cuenumRE=new RegExp("^"+REGEX.CUENUMBER_REGEX.source,REGEX.CUENUMBER_REGEX.flags);
+                if( cuenumRE.test(start) ) start="P "+start;
+                if( cuenumRE.test(end) ) end="P "+end;
                 // Find matches in the available cues
                 var startRE=new RegExp("^"+start+"[a-f]?$","i");
                 var endRE=new RegExp("^"+end+"[a-f]?$","i");
