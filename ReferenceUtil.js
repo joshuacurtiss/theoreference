@@ -13,13 +13,19 @@ class ReferenceUtil {
      *  It outputs an array even if only one reference is matched. 
      * 
      */
+
     parseReferences(text) {
+        var refs=this.parseReferencesWithIndex(text);
+        return refs.map(ref=>ref.obj);
+    }
+
+    parseReferencesWithIndex(text) {
         var refs=[], refre=this.getReferenceRegEx(), chaptercueRE=this.getChapterCueRegEx(), match, cumatch, r, cpmatch, p;
         while(match=refre.exec(text)) {
             p=this.getPublication(match[1]);
             while( cumatch=chaptercueRE.exec(match[2]) ) {
                 r=new Reference(p,cumatch[1],cumatch[2]);
-                if(r.valid()) refs.push(r);
+                if(r.valid()) refs.push({obj:r,index:match.index});
             }
         }
         return refs;
