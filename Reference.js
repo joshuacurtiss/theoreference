@@ -106,7 +106,8 @@ class Reference {
             var match=cueRE.exec(txt);
             txt=match[1]+(match[2]?` ${match[2]}`:``);
         }
-        // Capitalize
+        // Trim and Capitalize
+        txt=txt.trim();
         txt=txt[0].toUpperCase() + txt.slice(1);
         return txt;
     }

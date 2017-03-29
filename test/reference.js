@@ -32,7 +32,8 @@ describe("Reference", function() {
             {text:"r 4", becomes:"R 4"},
             {text:"Box 2", becomes:"Box 2"},
             {text:"box2", becomes:"Box 2"},
-            {text:"review 4", becomes:"Review 4"}
+            {text:"review 4", becomes:"Review 4"},
+            {text:" box 2", becomes:"Box 2"}
         ];
         tests.forEach(function(test) {
             it(`"${test.text}" should become "${test.becomes}"`, function() {
