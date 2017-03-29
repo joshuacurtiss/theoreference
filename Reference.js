@@ -26,6 +26,7 @@ class Reference {
         }
         this.cues=this.createCuesFromPars(this._pars)
     }
+    get cuesByName() {return this.cues.map(id=>this.availableCues[id])}
     get cues() {return this._cues}
     set cues(cues) {this._cues=cues}
     get availableCues() {return this._availableCues}
@@ -74,12 +75,13 @@ class Reference {
                 }
                 // Push out the range of matching cues, given that they were found
                 if( startI>=0 && endI>=0 ) {
-                    for( var i=startI ; i<=endI ; i++ ) cues.push(this.availableCues[i]);
+                    for( var i=startI ; i<=endI ; i++ ) cues.push(i);
                 }
             }
             // If pars was empty, that means we want everything. Just copy from available cues.
             if( pars.length==0 ) {
-                this.availableCues.forEach(item=>cues.push(item));
+                for( var i=0 ; i<this.availableCues.length ; i++ )
+                    cues.push(i);
             }
         }
         return cues;

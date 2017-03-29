@@ -62,7 +62,7 @@ describe("ReferenceUtil", function() {
                 if(result.length) result=result[0];
                 result.availableCues=CUES[result.publication.symbol][result.chapter];
                 expect(result.cues.length).to.equal(test.cues.length);
-                expect(result.cues.join(", ")).to.equal(test.cues.join(", "));
+                expect(result.cuesByName.join(", ")).to.equal(test.cues.join(", "));
             });
         });
     })
