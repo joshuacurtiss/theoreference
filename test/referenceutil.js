@@ -22,6 +22,7 @@ describe("ReferenceUtil", function() {
             {text:"Please check out Imitate Their Faith 15:22-26 and stuff.", finds:"ia 15:22-26"},
             {text:"Now try ia 15:22 to see what this is about.", finds:"ia 15:22"},
             {text:"Try ia 15 Art please.", finds:"ia 15:Art"},
+            {text:"ia 15 art 2 caption.", finds:"ia 15:Art 2 caption"},
             {text:"ia 15 p3.", finds:"ia 15:3"},
             {text:"ia ch15 par 3.", finds:"ia 15:3"},
             {text:"ia ch15 p 3.", finds:"ia 15:3"},
@@ -53,7 +54,9 @@ describe("ReferenceUtil", function() {
             {text:"ia 16:1-3", cues:["P 1","P 2","P 3a","Esther 5:3","P 3b"]},
             {text:"ia 16:6", cues:["P 6","Prov. 10:19"]},
             {text:"ia 16:5-6", cues:["P 5a","Eccl. 3:1","Eccl. 3:7","P 5b","P 6","Prov. 10:19"]},
+            {text:"ia 16 box 2 p 1", cues:["Box 2 P 1a","Gen. 49:27","Box 2 P 1b"]},
             {text:"ia 16 art 2", cues:["Art 2"]},
+            {text:"ia 16 art 2 caption, art 2", cues:["Art 2 Caption","Art 2"]},
             {text:"ia 14:99", cues:[]}
         ];
         tests.forEach(function(test) {
