@@ -33,6 +33,7 @@ describe("ReferenceUtil", function() {
             {text:"Try ia 15:22; 16:10", finds:"ia 15:22; ia 16:10"},
             {text:"Try ia 15:22; 16:10; bhs 2:12", finds:"ia 15:22; ia 16:10; bhs 2:12"},
             {text:"Check out ia 16 box 1 p 2", finds:"ia 16:Box 1 P 2"},
+            {text:"bearing thorough witness about gods kingdom ch1 par 2", finds:"bt 1:2"},
             {text:"ia 15:22-24-26", finds:"ia 15:22-24"}
         ];
         tests.forEach(function(test) {
