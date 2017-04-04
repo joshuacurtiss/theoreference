@@ -83,7 +83,8 @@ describe("ReferenceUtil", function() {
             {text:"ia 16 art 2 caption, art 2", cues:["Art 2 Caption","Art 2"]},
             {text:"ia 16 title", cues:["Title"]},
             {text:"ia 14:99", cues:[]},
-            {text:"mwb17 April 1:2", cues:["#2"]}
+            {text:"mwb17 April 1:2", cues:["#2"]},
+            {text:"mwb17 April 0:Presentation 1", cues:["Presentation 1a","Matt. 15:30","Presentation 1b"]}
         ];
         tests.forEach(function(test) {
             it(`"${test.text}" should have cues: "${test.cues.join(', ')}"`, function() {
