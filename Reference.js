@@ -53,10 +53,10 @@ class Reference {
                 var split=par.split("-");
                 var start=split[0].trim();
                 var end=split[split.length-1].trim();
-                // Add the "P" for numeric values (but include "14a" type values)
+                // For meeting workbook (mwb), add "#". For all other numerics, add "P" (but include "14a" type values)
                 var cuenumRE=new RegExp("^"+REGEX.CUENUMBER_REGEX.source,REGEX.CUENUMBER_REGEX.flags);
-                if( cuenumRE.test(start) ) start="P "+start;
-                if( cuenumRE.test(end) ) end="P "+end;
+                if( cuenumRE.test(start) ) start=(this.publication.symbol=="mwb"?"#":"P ")+start;
+                if( cuenumRE.test(end) ) end=(this.publication.symbol=="mwb"?"#":"P ")+end;
                 // Find matches in the available cues
                 var startRE=new RegExp("^"+start+"[a-f]?$","i");
                 var endRE=new RegExp("^"+end+"[a-f]?$","i");

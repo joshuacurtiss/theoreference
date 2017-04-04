@@ -11,6 +11,10 @@ const CUES={
     "sn": {
         "1": ["Start","Title","Introduction","Verse 1","Verse 2","Verse 3"],
         "2": ["Start","Title","Introduction","Verse 1","Verse 2","Verse 3"]
+    },
+    "mwb": {
+        "0": ["Title Page","Presentations","Presentation Intro 1","Presentation 1a","Matt. 15:30","Presentation 1b","Presentation Intro 2","Presentation 2a","Rev. 12:12","Presentation 2b","Rev. 12:12","Presentation 2c","T-33 Art","Presentation 2d","Presentation Intro 3","Presentation 3a","Matt. 6:10","Presentation 3b","Ps. 37:11","Presentation 3c","Matt. 6:10","Presentation 3d","Build Your Own"],
+        "1": ["Title Page", "#1", "TREASURES", "#2", "#3", "#4", "APPLY YOURSELF", "#5", "LIVING AS CHRISTIANS", "#6", "#7", "#8", "#9"]
     }
 }
 
@@ -51,7 +55,8 @@ describe("ReferenceUtil", function() {
             {text:"Find mwb16 January 3:3", finds:"mwb16 Jan 3:3"},
             {text:"Find mwb17 Feb 1:3", finds:"mwb17 Feb 1:3"},
             {text:"Find mwb2017 Sept 1:1", finds:"mwb17 Sep 1:1"},
-            {text:"Find meeting workbook 2016 Jun 1:1", finds:"mwb16 Jun 1:1"}
+            {text:"Find meeting workbook 2016 Jun 1:1", finds:"mwb16 Jun 1:1"},
+            {text:"Find mwb17 Apr 0:Presentation 2a", finds:"mwb17 Apr 0:Presentation 2a"}
         ];
         tests.forEach(function(test) {
             it(`"${test.text}" should find "${test.finds}"`, function() {
@@ -76,7 +81,8 @@ describe("ReferenceUtil", function() {
             {text:"ia 16 art 2", cues:["Art 2"]},
             {text:"ia 16 art 2 caption, art 2", cues:["Art 2 Caption","Art 2"]},
             {text:"ia 16 title", cues:["Title"]},
-            {text:"ia 14:99", cues:[]}
+            {text:"ia 14:99", cues:[]},
+            {text:"mwb17 April 1:2", cues:["#2"]}
         ];
         tests.forEach(function(test) {
             it(`"${test.text}" should have cues: "${test.cues.join(', ')}"`, function() {
