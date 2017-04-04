@@ -3,7 +3,7 @@ const moment=require("moment");
 class Publication {
     constructor(symbol, name, regex, hasDates=false) {
         this.hasDates=hasDates;
-        this.date="";
+        this.date=null
         this.symbol=symbol;
         this.name=name;
         this.regex=regex;
@@ -18,8 +18,8 @@ class Publication {
     get dateFormatted() {
         var out="";
         if( this.hasDates && this.date ) {
-            if( ["w","wp","ws"].indexOf(this.symbol)>=0 ) {
-                out=this.date.format(Publication.DATE_FORMAT["w-"+(this.date.year()<2016?"old":"new")]);
+            if( this.isWatchtower() ) {
+                out=this.date.format(Publication.DATE_FORMAT["w-"+(this.isOldWatchtower()?"old":"new")]);
             } else if( Publication.DATE_FORMAT.hasOwnProperty(this.symbol) ) {
                 out=this.date.format(Publication.DATE_FORMAT[this.symbol]);
             }
@@ -29,6 +29,9 @@ class Publication {
 
     set symbol(symbol) {this._symbol=symbol.toLowerCase()}
     get symbol() {return this._symbol}
+
+    isWatchtower() {return (["w","wp","ws"].indexOf(this.symbol)>=0)}
+    isOldWatchtower() {return (this.isWatchtower() && this.date && this.date.year()<2016)}
 
     match(text) {
         // When explicitly matching text to a publication, add ^ and $ to always match entire string.
