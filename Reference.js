@@ -133,7 +133,7 @@ class Reference {
         return csv.join(", ");
     }
     valid() {
-        return this.publication && this.chapter;
+        return this.publication!=undefined && this.chapter!=undefined;
     }
     hasAvailableCues() {
         return (this.availableCues.length>0);

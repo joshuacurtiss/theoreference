@@ -56,6 +56,7 @@ describe("ReferenceUtil", function() {
             {text:"Find mwb17 Feb 1:3", finds:"mwb17 Feb 1:3"},
             {text:"Find mwb2017 Sept 1:1", finds:"mwb17 Sep 1:1"},
             {text:"Find meeting workbook 2016 Jun 1:1", finds:"mwb16 Jun 1:1"},
+            {text:"Find mwb17 Apr 0:1", finds:"mwb17 Apr 0:1"},
             {text:"Find mwb17 Apr 0:Presentation 2a", finds:"mwb17 Apr 0:Presentation 2a"}
         ];
         tests.forEach(function(test) {
