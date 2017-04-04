@@ -35,7 +35,23 @@ describe("ReferenceUtil", function() {
             {text:"Check out ia 16 box 1 p 2", finds:"ia 16:Box 1 p 2"},
             {text:"bearing thorough witness about gods kingdom ch1 par 2", finds:"bt 1:2"},
             {text:"ia 15:22-24-26", finds:"ia 15:22-24"},
-            {text:"ia 16 title", finds:"ia 16:Title"}
+            {text:"ia 16 title", finds:"ia 16:Title"},
+            {text:"Find w16.02 1:13, 14", finds:"w16.02 1:13, 14"},
+            {text:"Find w15 5/15 4:6, 7", finds:"w15 5/15 4:6, 7"},
+            {text:"Find w15 11/15 1:9", finds:"w15 11/15 1:9"},
+            {text:"Find watchtower 1994 11/15 1:3", finds:"w94 11/15 1:3"},
+            {text:"Find yb12 3:3", finds:"yb12 3:3"},
+            {text:"Find yb2000 1:3", finds:"yb00 1:3"},
+            {text:"Find yearbook 13 1:1", finds:"yb13 1:1"},
+            {text:"Find Yearbook 2011 3:3", finds:"yb11 3:3"},
+            {text:"Find km 3/10 1:3", finds:"km 3/10 1:3"},
+            {text:"Find okm1/13 3:3", finds:"km 1/13 3:3"},
+            {text:"Find km 5/2010 3:3", finds:"km 5/10 3:3"},
+            {text:"Find Kingdom Ministry 3/2011 2:6", finds:"km 3/11 2:6"},
+            {text:"Find mwb16 January 3:3", finds:"mwb16 Jan 3:3"},
+            {text:"Find mwb17 Feb 1:3", finds:"mwb17 Feb 1:3"},
+            {text:"Find mwb2017 Sept 1:1", finds:"mwb17 Sep 1:1"},
+            {text:"Find meeting workbook 2016 Jun 1:1", finds:"mwb16 Jun 1:1"}
         ];
         tests.forEach(function(test) {
             it(`"${test.text}" should find "${test.finds}"`, function() {

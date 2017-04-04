@@ -61,16 +61,51 @@ class ReferenceUtil {
      */
     getPublication(txt) {
         var p=null;
+        // Loop thru publications and find the one it matches based on publication regex
         for( var i=0 ; i<ReferenceUtil.PUBLICATIONS.length && !p ; i++ ) {
-            if( ReferenceUtil.PUBLICATIONS[i].match(txt) ) p=ReferenceUtil.PUBLICATIONS[i];
+            if( ReferenceUtil.PUBLICATIONS[i].match(txt) ) {
+                p=ReferenceUtil.PUBLICATIONS[i];
+                // If it is date-based, though, instantiate a new Publication with the matching date.
+                if( p.hasDates && ReferenceUtil.DATE_REGEX.hasOwnProperty(p.symbol) ) {
+                    var datepub=new Publication(p.symbol,p.name,p.regex,true);
+                    // Match up date, set "1" for missing month/day, sanitize year, etc. 
+                    var RE=ReferenceUtil.DATE_REGEX[p.symbol];
+                    var datematch=RE.REGEX.exec(txt)
+                    var year=parseInt(datematch[RE.YEAR]);
+                    if(year<100) year+=(year<30)?2000:1900; // Threshold is 2030
+                    // Handle month as a string or a number
+                    var month=datematch[RE.MONTH] || 1;
+                    if( ! isNaN(month) ) month=parseInt(month)-1;
+                    var day=isNaN(datematch[RE.DAY])?1:parseInt(datematch[RE.DAY]);
+                    // If month is a string, pass a string to Date constructor. Otherwise, pass numerics.
+                    if( isNaN(month) ) datepub.date=new Date(`${month} ${day}, ${year}`);
+                    else datepub.date=new Date(year,month,day);
+                    p=datepub;
+                }
+            }
         }
         return p;
     }
 
 }
 
-// TODO: How to handle yearbook, watchtower, watchtower simplified, okm, mwb? Maybe add a year option to Publication class.
+// TODO: Note how this matches Watchtower public (wp), study (w), and simplified (ws) editions. Will need logic for this.
+ReferenceUtil.DATE_REGEX={
+    "w": {REGEX:/\w+\s*((?:\d\d)?\d\d)[\s\.]+(\d\d?)(?:\/(\d\d?))?/i,YEAR:1,MONTH:2,DAY:3},
+    "yb": {REGEX:/\w+\s*((?:\d\d)?\d\d)/i,YEAR:1,MONTH:2,DAY:3},
+    "km": {REGEX:/[\w ]*(\d\d?)\/((?:\d\d)?\d\d)/i,MONTH:1,YEAR:2,DAY:3},
+    "mwb": {REGEX:/[\w ]*((?:\d\d)?\d\d)\s*(Jan(?:uary)?|Feb(?:ruary)?|Mar(?:ch)?|Apr(?:il)?|May|June?|July?|Aug(?:ust)?|Sep(?:t|tember)?|Oct(?:ober)?|Nov(?:ember)?|Dec(?:ember)?)/i,YEAR:1,MONTH:2,DAY:3}
+};
+
 ReferenceUtil.PUBLICATIONS = [
+    
+    /* Date-based publications */
+    new Publication( "w", "Watchtower", /(?:watchtower|wt|wp|ws|w)\s*(?:(?:\d\d)?\d\d[\s\.]+\d\d?(?:\/\d\d?)?)/i, true ),
+    new Publication( "yb", "Yearbook", /(?:(?:yearbook|yb)\s*(?:\d\d)?\d\d)/i, true ),
+    new Publication( "km", "Kingdom Ministry", /(?:kingdom ministry|okm|km)\s*\d\d?\/(?:\d\d)?\d\d/i, true ),
+    new Publication( "mwb", "Life and Ministry Meeting Workbook", /(?:(?:life and ministry )?meeting workbook|mwb)\s*(?:\d\d)?\d\d\s*(?:Jan(?:uary)?|Feb(?:ruary)?|Mar(?:ch)?|Apr(?:il)?|May|June?|July?|Aug(?:ust)?|Sep(?:t|tember)?|Oct(?:ober)?|Nov(?:ember)?|Dec(?:ember)?)/i, true ),
+
+    /* Normal Publications */
     new Publication( "ba", "A Book for All People", /(?:ba|book for all people|book for all)/i ), 
     new Publication( "be", "Benefit From Theocratic Ministry School Education", /(?:be|benefit from theocratic ministry school education|ministry school|benefit)/i ),
     new Publication( "bh", "What Does the Bible Really Teach?", /(?:bh|what does the bible really teach|bible teach)\??/i ), 

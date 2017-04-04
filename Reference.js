@@ -143,10 +143,10 @@ class Reference {
                 (this.hasAvailableCues() && this.cues.length==this.availableCues.length);
     }
     toString() {
-        return `${this.publication.symbol} ${this.chapter}${this.isAllPars()?"":":"}${this.parsToString()}`;
+        return `${this.publication.toAbbrevString()} ${this.chapter}${this.isAllPars()?"":":"}${this.parsToString()}`;
     }
     toAbbrevString() {
-        return `${this.publication.symbol}${this.chapter}${this.isAllPars()?"":":"}${this.parsToString()}`.replace(/\s/g,"");
+        return `${this.publication.toAbbrevString()}${this.chapter}${this.isAllPars()?"":":"}${this.parsToString()}`.replace(/\s/g,"");
     }
 }
 
