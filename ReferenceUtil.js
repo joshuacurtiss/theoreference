@@ -93,8 +93,8 @@ class ReferenceUtil {
 ReferenceUtil.DATE_REGEX={
     "w": {REGEX:/\w+\s*((?:\d\d)?\d\d)[\s\.]+(\d\d?)(?:\/(\d\d?))?/i,YEAR:1,MONTH:2,DAY:3},
     "yb": {REGEX:/\w+\s*((?:\d\d)?\d\d)/i,YEAR:1,MONTH:2,DAY:3},
-    "km": {REGEX:/[\w ]*(\d\d?)\/((?:\d\d)?\d\d)/i,MONTH:1,YEAR:2,DAY:3},
-    "mwb": {REGEX:/[\w ]*((?:\d\d)?\d\d)\s*(Jan(?:uary)?|Feb(?:ruary)?|Mar(?:ch)?|Apr(?:il)?|May|June?|July?|Aug(?:ust)?|Sep(?:t|tember)?|Oct(?:ober)?|Nov(?:ember)?|Dec(?:ember)?)/i,YEAR:1,MONTH:2,DAY:3}
+    "km": {REGEX:/[a-z ]*(\d\d?)\/((?:\d\d)?\d\d)/i,MONTH:1,YEAR:2,DAY:3},
+    "mwb": {REGEX:/[a-z ]*((?:\d\d)?\d\d)\s*(Jan(?:uary)?|Feb(?:ruary)?|Mar(?:ch)?|Apr(?:il)?|May|June?|July?|Aug(?:ust)?|Sep(?:t|tember)?|Oct(?:ober)?|Nov(?:ember)?|Dec(?:ember)?)/i,YEAR:1,MONTH:2,DAY:3}
 };
 
 ReferenceUtil.PUBLICATIONS = [
