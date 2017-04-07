@@ -122,12 +122,10 @@ ReferenceUtil.PUBLICATIONS = [
     new Publication( "ct", "Is There a Creator Who Cares About You?", /(?:ct|is there a creator who cares about you|is there a creator|creator)\??/i ), 
     new Publication( "dg", "Does God Really Care About Us?", /(?:dg|does god really care about us|does god care)\??/i ), 
     new Publication( "dp", "Pay Attention to Daniel's Prophecy!", /(?:dp|pay attention to daniel'?s prophecy|daniel'?s prophecy)!?/i ), 
-    /*
-    new Publication( "fg", "Good News From God!", /XXXX/i ), 
-    new Publication( "fy", "The Secret of Family Happiness", /XXXX/i ), 
-    new Publication( "gf", "You Can Be God's Friend!", /XXXX/i ), 
-    new Publication( "gt", "The Greatest Man Who Ever Lived", /XXXX/i ), 
-    */
+    new Publication( "fg", "Good News From God!", /(?:fg|good news(?: from god)?!?)/i ), 
+    new Publication( "fy", "The Secret of Family Happiness", /(?:fy|(?:the )?(?:secret of )?family hapiness)/i ), 
+    new Publication( "gf", "You Can Be God's Friend!", /(?:gf|(?:you can be )?god'?s friend!?)/i ), 
+    new Publication( "gt", "The Greatest Man Who Ever Lived", /(?:gt|(?:the )?greatest man(?: who ever lived)?)/i ), 
     new Publication( "hf", "Your Family Can Be Happy", /(?:hf|your family can be happy|happy family)/i ), 
     new Publication( "hl", "How Can You Have a Happy Life?", /(?:hl|how can you have a happy life|happy life)\??/i ), 
     new Publication( "ia", "Imitate Their Faith", /(?:ia|imitate their faith|imitate)/i ), 
@@ -136,16 +134,12 @@ ReferenceUtil.PUBLICATIONS = [
     new Publication( "Lmn", "\"Look! I Am Making All Things New\"", /(?:lmn|look!? i am making all things new|look!?)/i ), 
     new Publication( "lr", "Learn From the Great Teacher", /(?:lr|learn from the great teacher)/i ), 
     new Publication( "lv", "Keep Yourselves in God's Love", /(?:lv|keep yourselves in god'?s love|god'?s love)/i ), 
-    /*
-    new Publication( "my", "My Book of Bible Stories", /XXXX/i ), 
-    new Publication( "rj", "Return to Jehovah", /XXXX/i ), 
-    */
+    new Publication( "my", "My Book of Bible Stories", /(?:(?:my book of )?bible stories|my)/i ), 
+    new Publication( "rj", "Return to Jehovah", /(?:rj|return to jehovah)/i ), 
     new Publication( "sn", "Sing to Jehovah", /(?:sn|sing to jehovah|sing|songs|song)/i ),
     new Publication( "snnw", "Sing to Jehovah-New Songs", /(?:snnw|sing to jehovah\-new songs|sing new|new songs|new song)/i ),
-    /*
-    new Publication( "sp", "Spirits of the Dead—Can They Help You or Harm You? Do They Really Exist?", /XXXX/i ), 
-    new Publication( "we", "When Someone You Love Dies", /XXXX/i ), 
-    */
+    new Publication( "sp", "Spirits of the Dead—Can They Help You or Harm You? Do They Really Exist?", /(?:spirits(?: of the dead)|Spirits of the Dead\—Can They Help You or Harm You\?? Do They Really Exist\??|sp)/i ), 
+    new Publication( "we", "When Someone You Love Dies", /(?:when someone you love dies|we)/i ), 
     new Publication( "ypq", "Answers to 10 Questions Young People Ask", /(?:ypq|answers|answers to 10 questions young people ask|answers to 10 questions)/i )
 
     /* Publications to be excluded for now */
