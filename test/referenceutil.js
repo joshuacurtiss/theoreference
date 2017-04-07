@@ -51,6 +51,7 @@ describe("ReferenceUtil", function() {
             {text:"Find km 3/10 1:3", finds:"km 3/10 1:3"},
             {text:"Find okm1/13 3:3", finds:"km 1/13 3:3"},
             {text:"Find km 5/2010 3:3", finds:"km 5/10 3:3"},
+            {text:"FInd km 12/15 1:1", finds:"km 12/15 1:1"},
             {text:"Find Kingdom Ministry 3/2011 2:6", finds:"km 3/11 2:6"},
             {text:"Find mwb16 January 3:3", finds:"mwb16 Jan 3:3"},
             {text:"Find mwb17 Feb 1:3", finds:"mwb17 Feb 1:3"},
