@@ -58,7 +58,11 @@ describe("ReferenceUtil", function() {
             {text:"Find mwb2017 Sept 1:1", finds:"mwb17 Sep 1:1"},
             {text:"Find meeting workbook 2016 Jun 1:1", finds:"mwb16 Jun 1:1"},
             {text:"Find mwb17 Apr 0:1", finds:"mwb17 Apr 0:1"},
-            {text:"Find mwb17 Apr 0:Presentation 2a", finds:"mwb17 Apr 0:Presentation 2a"}
+            {text:"Find mwb17 Apr 0:Presentation 2a", finds:"mwb17 Apr 0:Presentation 2a"},
+            {text:"Find pk 3", finds:"pk 3"},
+            {text:"Find Become Jehovahs Friend 5", finds:"pk 5"},
+            {text:"Find Become Jehovah's Friend Song 73", finds:"pksjj 73"},
+            {text:"Find pksjj 149", finds:"pksjj 149"},
         ];
         tests.forEach(function(test) {
             it(`"${test.text}" should find "${test.finds}"`, function() {

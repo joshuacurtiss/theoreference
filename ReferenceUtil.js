@@ -105,6 +105,10 @@ ReferenceUtil.PUBLICATIONS = [
     new Publication( "km", "Kingdom Ministry", /(?:kingdom ministry|okm|km)\s*\d\d?\/(?:\d\d)?\d\d/i, true ),
     new Publication( "mwb", "Life and Ministry Meeting Workbook", /(?:(?:life and ministry )?meeting workbook|mwb)\s*(?:\d\d)?\d\d\s*(?:Jan(?:uary)?|Feb(?:ruary)?|Mar(?:ch)?|Apr(?:il)?|May|June?|July?|Aug(?:ust)?|Sep(?:t|tember)?|Oct(?:ober)?|Nov(?:ember)?|Dec(?:ember)?)/i, true ),
 
+    /* Video-only publications */
+    new Publication( "pksjj", "Become Jehovah's Friend Songs", /(?:pksjj|(?:become )?jehovah'?s friend songs?)/i ),
+    new Publication( "pk", "Become Jehovah's Friend", /(?:pk|(?:become )?jehovah'?s friend)/i ),
+
     /* Normal Publications */
     new Publication( "ba", "A Book for All People", /(?:ba|book for all people|book for all)/i ), 
     new Publication( "be", "Benefit From Theocratic Ministry School Education", /(?:be|benefit from theocratic ministry school education|ministry school|benefit)/i ),
