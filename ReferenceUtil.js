@@ -109,6 +109,13 @@ ReferenceUtil.PUBLICATIONS = [
     new Publication( "pksjj", "Become Jehovah's Friend Songs", /(?:pksjj|(?:become )?jehovah'?s friend songs?)/i ),
     new Publication( "pk", "Become Jehovah's Friend", /(?:pk|(?:become )?jehovah'?s friend)/i ),
 
+    /* Tracts */
+    new Publication( "t-30", "How Do You View the Bible?", /(?:T-30|How Do You View the Bible\??)/i ),
+    new Publication( "t-33", "Who Really Controls the World?", /(?:T-33|Who Really Controls the World\??)/i ),
+    new Publication( "t-34", "Will Suffering Ever End?", /(?:T-34|Will Suffering Ever End\??)/i ),
+    new Publication( "t-35", "Can the Dead Really Live Again?", /(?:T-35|Can the Dead Really Live Again\??)/i ),
+    new Publication( "t-36", "What Is the Kingdom of God?", /(?:T-36|What Is the Kingdom of God\??)/i ),
+
     /* Normal Publications */
     new Publication( "ba", "A Book for All People", /(?:ba|book for all people|book for all)/i ), 
     new Publication( "be", "Benefit From Theocratic Ministry School Education", /(?:be|benefit from theocratic ministry school education|ministry school|benefit)/i ),
