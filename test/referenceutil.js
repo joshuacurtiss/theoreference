@@ -63,7 +63,9 @@ describe("ReferenceUtil", function() {
             {text:"Find Become Jehovahs Friend 5", finds:"pk 5"},
             {text:"Find Become Jehovah's Friend Song 73", finds:"pksjj 73"},
             {text:"Find pksjj 149", finds:"pksjj 149"},
-            {text:"w13 8/15 3 art 2 start", finds:"w13 8/15 3:Art 2 start"}
+            {text:"w13 8/15 3 art 2 start", finds:"w13 8/15 3:Art 2 start"},
+            {text:"T-35 1", finds:"t-35 1"},
+            {text:"Play T-34 tract", finds:"t-34"}
         ];
         tests.forEach(function(test) {
             it(`"${test.text}" should find "${test.finds}"`, function() {
