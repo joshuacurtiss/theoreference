@@ -111,6 +111,8 @@ ReferenceUtil.PUBLICATIONS = [
 
     /* Tracts */
     new Publication( "t-30", "How Do You View the Bible?", /(?:T-30|How Do You View the Bible\??)/i ),
+    new Publication( "t-31", "How Do You View the Future?", /(?:T-31|How Do You View the Future\??)/i ),
+    new Publication( "t-32", "What Is the Key to Happy Family Life?", /(?:T-32|What Is the Key to Happy Family Life\??)/i ),
     new Publication( "t-33", "Who Really Controls the World?", /(?:T-33|Who Really Controls the World\??)/i ),
     new Publication( "t-34", "Will Suffering Ever End?", /(?:T-34|Will Suffering Ever End\??)/i ),
     new Publication( "t-35", "Can the Dead Really Live Again?", /(?:T-35|Can the Dead Really Live Again\??)/i ),
