@@ -91,6 +91,7 @@ class ReferenceUtil {
 
 // TODO: Note how this matches Watchtower public (wp), study (w), and simplified (ws) editions. Will need logic for this.
 ReferenceUtil.DATE_REGEX={
+    "g": {REGEX:/\w+\s*((?:\d\d)?\d\d)\s*(?:No)?\.?\s*(\d\d?)(?:\/(\d\d?))?/i,YEAR:1,MONTH:2,DAY:3},
     "w": {REGEX:/\w+\s*((?:\d\d)?\d\d)[\s\.]+(\d\d?)(?:\/(\d\d?))?/i,YEAR:1,MONTH:2,DAY:3},
     "yb": {REGEX:/\w+\s*((?:\d\d)?\d\d)/i,YEAR:1,MONTH:2,DAY:3},
     "km": {REGEX:/[a-z ]*(\d\d?)\/((?:\d\d)?\d\d)/i,MONTH:1,YEAR:2,DAY:3},
@@ -100,6 +101,7 @@ ReferenceUtil.DATE_REGEX={
 ReferenceUtil.PUBLICATIONS = [
     
     /* Date-based publications */
+    new Publication( "g", "Awake!", /(?:awake!?|g)\s*(?:(?:\d\d)?\d\d\s*(?:No)?\.?\s*\d\d?(?:\/\d\d?)?)/i, true ),
     new Publication( "w", "Watchtower", /(?:watchtower|wt|wp|ws|w)\s*(?:(?:\d\d)?\d\d[\s\.]+\d\d?(?:\/\d\d?)?)/i, true ),
     new Publication( "yb", "Yearbook", /(?:(?:yearbook|yb)\s*(?:\d\d)?\d\d)/i, true ),
     new Publication( "km", "Kingdom Ministry", /(?:kingdom ministry|okm|km)\s*\d\d?\/(?:\d\d)?\d\d/i, true ),

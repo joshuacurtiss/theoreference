@@ -20,6 +20,8 @@ class Publication {
         if( this.hasDates && this.date ) {
             if( this.isWatchtower() ) {
                 out=this.date.format(Publication.DATE_FORMAT["w-"+(this.isOldWatchtower()?"old":"new")]);
+            } else if( this.isAwake() ) {
+                out=this.date.format(Publication.DATE_FORMAT["g-"+(this.isOldAwake()?"old":"new")]);
             } else if( Publication.DATE_FORMAT.hasOwnProperty(this.symbol) ) {
                 out=this.date.format(Publication.DATE_FORMAT[this.symbol]);
             }
@@ -33,6 +35,9 @@ class Publication {
     isWatchtower() {return (["w","wp","ws"].indexOf(this.symbol)>=0)}
     isOldWatchtower() {return (this.isWatchtower() && this.date && this.date.year()<2016)}
 
+    isAwake() {return (["g"].indexOf(this.symbol)>=0)}
+    isOldAwake() {return (this.isAwake() && this.date && this.date.year()<2016)}
+
     match(text) {
         // When explicitly matching text to a publication, add ^ and $ to always match entire string.
         // This can avoid some bizarre false positives.
@@ -45,7 +50,14 @@ class Publication {
 
 }
 
+// TODO: Awake should be improved to handle the date variations (right now it only handles the first and last ones)
+// - "g05 1/8" and "g05 1/22" for 2000-2005
+// - "g 1/13" for monthly 2006-2015
+// - "g17 No. 1" for special editions since 2016
+
 Publication.DATE_FORMAT={
+    "g-old":"YY M/D", 
+    "g-new":"YY No. M",
     "w-old":"YY M/D",
     "w-new":"YY.MM",
     "yb":"YY",

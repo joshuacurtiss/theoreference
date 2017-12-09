@@ -65,7 +65,10 @@ describe("ReferenceUtil", function() {
             {text:"Find pksjj 149", finds:"pksjj 149"},
             {text:"w13 8/15 3 art 2 start", finds:"w13 8/15 3:Art 2 start"},
             {text:"T-35 1", finds:"t-35 1"},
-            {text:"Play T-34 tract", finds:"t-34"}
+            {text:"Play T-34 tract", finds:"t-34"},
+            {text:"Find g17 No. 5 1:1", finds:"g17 No. 5 1:1"},
+            {text:"Find g02 1/8 1:1", finds:"g02 1/8 1:1"},
+            {text:"Find g 1/13 1:1", finds:"g 1/13 1:1"}
         ];
         tests.forEach(function(test) {
             it(`"${test.text}" should find "${test.finds}"`, function() {
