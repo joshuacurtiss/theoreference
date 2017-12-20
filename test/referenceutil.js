@@ -68,7 +68,11 @@ describe("ReferenceUtil", function() {
             {text:"Play T-34 tract", finds:"t-34"},
             {text:"Find g17 No. 5 1:1", finds:"g17 No. 5 1:1"},
             {text:"Find g02 1/8 1:1", finds:"g02 1/8 1:1"},
-            {text:"Find g 1/13 1:1", finds:"g 1/13 1:1"}
+            {text:"Find g 1/13 1:1", finds:"g 1/13 1:1"},
+            {text:"Find cf 1:1", finds:"cf 1:1"},
+            {text:"Find cfc 2:2", finds:"cfc 2:2"},
+            {text:"Where can you find comfort? 2:2", finds:"cfc 2:2"},
+            {text:"comfort 2:2", finds:"cfc 2:2"}
         ];
         tests.forEach(function(test) {
             it(`"${test.text}" should find "${test.finds}"`, function() {

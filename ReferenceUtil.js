@@ -129,6 +129,7 @@ ReferenceUtil.PUBLICATIONS = [
     new Publication( "bp", "The Government That Will Bring Paradise", /(?:bp|the government that will bring paradise|bring paradise)/i ), 
     new Publication( "bt", "\"Bearing Thorough Witness\" About God's Kingdom", /(?:bt|"?bearing thorough witness"? about god'?s kingdom|bearing thorough witness)/i ), 
     new Publication( "cf", "Come Be My Follower", /(?:cf|come be my follower|my follower)/i ), 
+    new Publication( "cfc", "Where Can You Find Comfort?", /(?:cfc|comfort|where can you find comfort)\??/i ),
     new Publication( "cl", "Draw Close to Jehovah", /(?:cl|draw close to jehovah|draw close)/i ), 
     new Publication( "ct", "Is There a Creator Who Cares About You?", /(?:ct|is there a creator who cares about you|is there a creator|creator)\??/i ), 
     new Publication( "dg", "Does God Really Care About Us?", /(?:dg|does god really care about us|does god care)\??/i ), 
