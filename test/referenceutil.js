@@ -72,7 +72,8 @@ describe("ReferenceUtil", function() {
             {text:"Find cf 1:1", finds:"cf 1:1"},
             {text:"Find cfc 2:2", finds:"cfc 2:2"},
             {text:"Where can you find comfort? 2:2", finds:"cfc 2:2"},
-            {text:"comfort 2:2", finds:"cfc 2:2"}
+            {text:"comfort 2:2", finds:"cfc 2:2"},
+            {text:"bhs 8:Box P2", finds:"bhs 8:Box P 2"}
         ];
         tests.forEach(function(test) {
             it(`"${test.text}" should find "${test.finds}"`, function() {
