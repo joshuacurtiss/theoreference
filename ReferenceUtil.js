@@ -110,6 +110,7 @@ ReferenceUtil.PUBLICATIONS = [
     
     /* Date-based publications */
     new Publication( "g", "Awake!", /(?:awake!?|g)\s*(?:(?:\d\d)?\d\d\s*(?:No)?\.?\s*\d\d?(?:\/\d\d?)?)/i, true ),
+    // TODO: Maybe WT should be broken out for wp, ws and w?
     new Publication( "w", "Watchtower", /(?:watchtower|wt|wp|ws|w)\s*(?:(?:\d\d)?\d\d[\s\.]+\d\d?(?:\/\d\d?)?)/i, true ),
     new Publication( "yb", "Yearbook", /(?:(?:yearbook|yb)\s*(?:\d\d)?\d\d)/i, true ),
     new Publication( "km", "Kingdom Ministry", /(?:kingdom ministry|okm|km)\s*\d\d?\/(?:\d\d)?\d\d/i, true ),
@@ -162,7 +163,29 @@ ReferenceUtil.PUBLICATIONS = [
     new Publication( "we", "When Someone You Love Dies", /(?:when someone you love dies|we)/i ), 
     new Publication( "ypq", "Answers to 10 Questions Young People Ask", /(?:ypq|answers|answers to 10 questions young people ask|answers to 10 questions)/i )
 
-    /* Publications to be excluded for now */
+    /*  
+        TODO: Add? Maybe? They are annual items. Maybe just add them per year as normal pubs? :-/
+        mipw18 2018 Memorial 
+        CA-copgm18 2017-2018 Circuit Assembly Program--With Circuit Overseer
+        CA-brpgm18 2017-2018 Circuit Assembly Program--With Branch Representative
+        ybgb17 A Letter From the Governing Body--2017
+    */
+
+    /*
+        TODO: Definitely Add. Need to figure out the regex. 
+        TODO: Note, a few of these have weird issues with chapters lining up to filename
+        new Publication( "kr", "God's Kingdom Rules!", /XXXX/i ), 
+        new Publication( "lfb", "Lessions You Can Learn From the Bible", /XXXX/i ), 
+        new Publication( "od", "Organized to Do Jehovah's Will", /XXXX/i ), 
+        new Publication( "igw", "An Introduction to God's Word", /XXXX/i ), 
+        new Publication( "ds", "'Go, Make Disciples, Baptizing Them'", /XXXX/i ), 
+        new Publication( "ivib", "Help to Face Issues About Blood", /XXXX/i ), 
+        new Publication( "ivjss", "Jesus--Where He Came From, How He Lived, Why He Died", /XXXX/i ), 
+        new Publication( "ivrch", "How to Raise Responsible Children", /XXXX/i ), 
+        new Publication( "kt", "Would You Like to Know the Truth?", /XXXX/i ), 
+    */
+
+    /* Publications to be excluded for now because they are not on jw.org for sign language */
     /*
     new Publication( "br78", "Jehovah's Witnesses in the Twentieth Century", /XXXX/i ), 
     new Publication( "ed", "Jehovah's Witnesses and Education", /XXXX/i ), 
@@ -183,13 +206,11 @@ ReferenceUtil.PUBLICATIONS = [
     new Publication( "jy", "Jesus—The Way, the Truth, the Life", /XXXX/i ), 
     new Publication( "kl", "Knowledge That Leads to Everlasting Life", /XXXX/i ), 
     new Publication( "kp", "Keep on the Watch!", /XXXX/i ), 
-    new Publication( "kr", "God's Kingdom Rules!", /XXXX/i ), 
     new Publication( "la", "A Satisfying Life—How to Attain It", /XXXX/i ), 
     new Publication( "lc", "Was Life Created?", /XXXX/i ), 
     new Publication( "ld", "Listen to God", /XXXX/i ), 
     new Publication( "lf", "The Origin of Life—Five Questions Worth Asking", /XXXX/i ), 
     new Publication( "mb", "My Bible Lessons", /XXXX/i ), 
-    new Publication( "od", "Organized to Do Jehovah's Will", /XXXX/i ), 
     new Publication( "ol", "The Road to Everlasting Life—Have You Found It?", /XXXX/i ), 
     new Publication( "om", "Organized to Accomplish Our Ministry", /XXXX/i ), 
     new Publication( "op", "Our Problems—Who Will Help Us Solve Them?", /XXXX/i ), 
