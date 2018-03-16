@@ -87,6 +87,14 @@ class ReferenceUtil {
         return p;
     }
 
+    /*
+     * getPublicationBySymbol: Receives a symbol and returns the exact Publication object for it.
+     * 
+     */
+    getPublicationBySymbol(symbol) {
+        return ReferenceUtil.PUBLICATIONS.find(pub=>pub.symbol===symbol);
+    }
+    
 }
 
 // TODO: Note how this matches Watchtower public (wp), study (w), and simplified (ws) editions. Will need logic for this.

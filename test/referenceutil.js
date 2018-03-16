@@ -114,4 +114,21 @@ describe("ReferenceUtil", function() {
         });
     })
 
+    describe("getPublicationBySymbol", function() {
+        var tests=[
+            {symbol:"w", pub:"Watchtower"},
+            {symbol:"g", pub:"Awake!"},
+            {symbol:"sn", pub:"Sing to Jehovah"},
+            {symbol:"bhs", pub:"What Can the Bible Teach Us?"},
+            {symbol:"ia", pub:"Imitate Their Faith"}
+        ];
+        tests.forEach(function(test) {
+            it(`"${test.symbol}" should find "${test.pub}"`, function() {
+                var util=new ReferenceUtil();
+                var result=util.getPublicationBySymbol(test.symbol);
+                expect(result.name).to.equal(test.pub);
+            });
+        });
+    })
+
 });
