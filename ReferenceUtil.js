@@ -143,6 +143,7 @@ ReferenceUtil.PUBLICATIONS = [
     new Publication( "ct", "Is There a Creator Who Cares About You?", /(?:ct|is there a creator who cares about you|is there a creator|creator)\??/i ), 
     new Publication( "dg", "Does God Really Care About Us?", /(?:dg|does god really care about us|does god care)\??/i ), 
     new Publication( "dp", "Pay Attention to Daniel's Prophecy!", /(?:dp|pay attention to daniel'?s prophecy|daniel'?s prophecy)!?/i ), 
+    new Publication( "ds", "'Go, Make Disciples, Baptizing Them'", /(?:ds|'?(?:go,? *)?make disciples,? *(?:baptizing them)?'?)/i ), 
     new Publication( "fg", "Good News From God!", /(?:fg|good news(?: from god)?!?)/i ), 
     new Publication( "fy", "The Secret of Family Happiness", /(?:fy|(?:the )?(?:secret of )?family hapiness)/i ), 
     new Publication( "gf", "You Can Be God's Friend!", /(?:gf|(?:you can be )?god'?s friend!?)/i ), 
@@ -150,12 +151,20 @@ ReferenceUtil.PUBLICATIONS = [
     new Publication( "hf", "Your Family Can Be Happy", /(?:hf|your family can be happy|happy family)/i ), 
     new Publication( "hl", "How Can You Have a Happy Life?", /(?:hl|how can you have a happy life|happy life)\??/i ), 
     new Publication( "ia", "Imitate Their Faith", /(?:ia|imitate their faith|imitate)/i ), 
+    new Publication( "igw", "An Introduction to God's Word", /(?:igw|(?:an )?intro(?:duction)? to god'?s word)/i ), 
+    new Publication( "ivib", "Help to Face Issues About Blood", /(?:ivib|(?:help (?:to )?face )?issues about blood)/i ), 
+    new Publication( "ivjss", "Jesus-Where He Came From, How He Lived, Why He Died", /(?:ivjss|jesus *-* *where he came from,? *how he lived,? *why he died)/i ), 
+    new Publication( "ivrch", "How to Raise Responsible Children", /(?:ivrch|(?:raise |how to raise )?responsible children)/i ), 
     new Publication( "jl", "Who Are Doing Jehovah's Will Today?", /(?:jl|who are doing jehovah's will|jehovah's will)/i ), 
     new Publication( "ll", "Listen to God and Live Forever", /(?:ll|listen to god and live forever|listen to god|listen and live)/i ), 
+    new Publication( "kr", "God's Kingdom Rules!", /(?:kr|(?:god'?s )?kingdom rules!?)/i ), 
+    new Publication( "kt", "Would You Like to Know the Truth?", /(?:kt|truth\??|know (?:the )?truth\??|would you like to know (?:the )?truth\??)/i ), 
+    new Publication( "lfb", "Lessons You Can Learn From the Bible", /(?:lfb|(?:lessons you can )?learn from (?:the )?bible)/i ), 
     new Publication( "Lmn", "\"Look! I Am Making All Things New\"", /(?:lmn|look!? i am making all things new|look!?)/i ), 
     new Publication( "lr", "Learn From the Great Teacher", /(?:lr|learn from the great teacher)/i ), 
     new Publication( "lv", "Keep Yourselves in God's Love", /(?:lv|keep yourselves in god'?s love|god'?s love)/i ), 
     new Publication( "my", "My Book of Bible Stories", /(?:(?:my book of )?bible stories|my)/i ), 
+    new Publication( "od", "Organized to Do Jehovah's Will", /(?:od|organized to do jehovah'?s will|organized)/i ), 
     new Publication( "rj", "Return to Jehovah", /(?:rj|return to jehovah)/i ), 
     new Publication( "sn", "Sing to Jehovah", /(?:sn|sing to jehovah|sing|songs|song)/i ),
     new Publication( "snnw", "Sing to Jehovah-New Songs", /(?:snnw|sing to jehovah\-new songs|sing new|new songs|new song)/i ),
@@ -169,20 +178,6 @@ ReferenceUtil.PUBLICATIONS = [
         CA-copgm18 2017-2018 Circuit Assembly Program--With Circuit Overseer
         CA-brpgm18 2017-2018 Circuit Assembly Program--With Branch Representative
         ybgb17 A Letter From the Governing Body--2017
-    */
-
-    /*
-        TODO: Definitely Add. Need to figure out the regex. 
-        TODO: Note, a few of these have weird issues with chapters lining up to filename
-        new Publication( "kr", "God's Kingdom Rules!", /XXXX/i ), 
-        new Publication( "lfb", "Lessions You Can Learn From the Bible", /XXXX/i ), 
-        new Publication( "od", "Organized to Do Jehovah's Will", /XXXX/i ), 
-        new Publication( "igw", "An Introduction to God's Word", /XXXX/i ), 
-        new Publication( "ds", "'Go, Make Disciples, Baptizing Them'", /XXXX/i ), 
-        new Publication( "ivib", "Help to Face Issues About Blood", /XXXX/i ), 
-        new Publication( "ivjss", "Jesus--Where He Came From, How He Lived, Why He Died", /XXXX/i ), 
-        new Publication( "ivrch", "How to Raise Responsible Children", /XXXX/i ), 
-        new Publication( "kt", "Would You Like to Know the Truth?", /XXXX/i ), 
     */
 
     /* Publications to be excluded for now because they are not on jw.org for sign language */
