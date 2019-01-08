@@ -155,6 +155,7 @@ ReferenceUtil.PUBLICATIONS = [
     new Publication( "ivib", "Help to Face Issues About Blood", /(?:ivib|(?:help (?:to )?face )?issues about blood)/i ), 
     new Publication( "ivjss", "Jesus-Where He Came From, How He Lived, Why He Died", /(?:ivjss|jesus *-* *where he came from,? *how he lived,? *why he died)/i ), 
     new Publication( "ivrch", "How to Raise Responsible Children", /(?:ivrch|(?:raise |how to raise )?responsible children)/i ), 
+    new Publication( "ivwc", "The Wonders of Creation Reveal God's Glory", /(?:ivwc|(?:the )?(?:wonders of creation)(?:\sreveal god'?s glory)?)/i ), 
     new Publication( "jl", "Who Are Doing Jehovah's Will Today?", /(?:jl|who are doing jehovah's will|jehovah's will)/i ), 
     new Publication( "ll", "Listen to God and Live Forever", /(?:ll|listen to god and live forever|listen to god|listen and live)/i ), 
     new Publication( "kr", "God's Kingdom Rules!", /(?:kr|(?:god'?s )?kingdom rules!?)/i ), 
@@ -165,10 +166,14 @@ ReferenceUtil.PUBLICATIONS = [
     new Publication( "lv", "Keep Yourselves in God's Love", /(?:lv|keep yourselves in god'?s love|god'?s love)/i ), 
     new Publication( "my", "My Book of Bible Stories", /(?:(?:my book of )?bible stories|my)/i ), 
     new Publication( "od", "Organized to Do Jehovah's Will", /(?:od|organized to do jehovah'?s will|organized)/i ), 
+    new Publication( "osg", "Original Songs", /(?:osg|original songs)/i ),
     new Publication( "rj", "Return to Jehovah", /(?:rj|return to jehovah)/i ), 
-    new Publication( "sn", "Sing to Jehovah", /(?:sn|sing to jehovah|sing|songs|song)/i ),
+    new Publication( "sjj", "\"Sing Out Joyfully\" to Jehovah", /(?:sjj|sing out joyfully to jehovah|sing out joyfully|sing out|sing)/i ),
+    new Publication( "sn", "Sing to Jehovah", /(?:sn|sing to jehovah|songs|song)/i ),
     new Publication( "snnw", "Sing to Jehovah-New Songs", /(?:snnw|sing to jehovah\-new songs|sing new|new songs|new song)/i ),
     new Publication( "sp", "Spirits of the Dead—Can They Help You or Harm You? Do They Really Exist?", /(?:spirits(?: of the dead)|Spirits of the Dead\—Can They Help You or Harm You\?? Do They Really Exist\??|sp)/i ), 
+    new Publication( "th", "Apply Yourself to Reading and Teaching", /(?:th|apply yourself to reading and teaching|apply yourself)/i ),
+    new Publication( "thv", "Apply Yourself to Reading and Teaching-Videos", /(?:thv|apply yourself to reading and teaching videos|apply yourself videos)/i ),
     new Publication( "we", "When Someone You Love Dies", /(?:when someone you love dies|we)/i ), 
     new Publication( "ypq", "Answers to 10 Questions Young People Ask", /(?:ypq|answers|answers to 10 questions young people ask|answers to 10 questions)/i )
 

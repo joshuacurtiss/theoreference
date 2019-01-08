@@ -22,6 +22,11 @@ describe("ReferenceUtil", function() {
 
     describe("Matching", function() {
         var tests=[
+            {text:"sing 4", finds:"sjj 4"},
+            {text:"sing out 4", finds:"sjj 4"},
+            {text:"original songs 4", finds:"osg 4"},
+            {text:"wonders of creation 2", finds:"ivwc 2"},
+            {text:"apply yourself 3", finds:"th 3"},
             {text:"Play entire hf 1 chapter.", finds:"hf 1"},
             {text:"Please check out Imitate Their Faith 15:22-26 and stuff.", finds:"ia 15:22-26"},
             {text:"Now try ia 15:22 to see what this is about.", finds:"ia 15:22"},
@@ -119,6 +124,7 @@ describe("ReferenceUtil", function() {
             {symbol:"w", pub:"Watchtower"},
             {symbol:"g", pub:"Awake!"},
             {symbol:"sn", pub:"Sing to Jehovah"},
+            {symbol:"sjj", pub:"\"Sing Out Joyfully\" to Jehovah"},
             {symbol:"bhs", pub:"What Can the Bible Teach Us?"},
             {symbol:"ia", pub:"Imitate Their Faith"}
         ];
